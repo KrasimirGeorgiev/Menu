@@ -1,14 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Menu.Data;
 using Menu.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Menu.Controllers
 {
     public class Menu : Controller
     {
-        public IActionResult Index()
+        private readonly MenuContext _context;
+        public Menu(MenuContext context) 
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Dishes.ToListAsync());
         }
     }
 }
