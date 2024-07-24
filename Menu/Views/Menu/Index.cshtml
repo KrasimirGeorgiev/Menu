@@ -8,14 +8,14 @@
         @foreach (var item in Model)
         {
             <div class="col-6">
-                <div>
+                <div class="d-flex justify-content-center">
                     <h4>@item.Name</h4>
                 </div>
-                <div>
-                    @item.ImgUrl
+                <div class="d-flex justify-content-center">
+                    <img src="@item.ImgUrl" style="width:70%"/>
                 </div>
-                <div>
-                    @item.Price
+                <div class="d-flex justify-content-center">
+                    @item.Price.ToString("N2") Dollars
                 </div>
             </div>
         }
